@@ -25,24 +25,24 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
   },
-  "name": "react-tailwind-template",
-  "description": "React, Tailwind, Webpack, Babel",
-  "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "dev": "webpack serve --open",
     "lint": "eslint"
   },
+  "name": "memory-game",
+  "description": "memory game",
+  "version": "1.0.0",
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hassanbaryal/react-tailwind-template.git"
+    "url": "git+https://github.com/hassanbaryal/memory-game.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hassanbaryal/react-tailwind-template/issues"
+    "url": "https://github.com/hassanbaryal/memory-game/issues"
   },
-  "homepage": "https://github.com/hassanbaryal/react-tailwind-template#readme"
+  "homepage": "https://github.com/hassanbaryal/memory-game#readme"
 }

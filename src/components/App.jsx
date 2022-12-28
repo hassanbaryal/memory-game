@@ -1,20 +1,10 @@
 import React from 'react';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-
-  render() {
-    return (
-      <div className="font-extrabold text-7xl">
-        Hello World
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="h-screen flex flex-col overflow-auto">
+    </div>
+  );
 }
 
 export default App;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Loader from './Loader';
 import Cards from './Cards';
+import ScoreBoard from './ScoreBoard';
 
 function Game() {
   const [deck, setDeck] = useState(null);
@@ -53,8 +54,9 @@ function Game() {
   }
 
   return (
-    <div className="h-full w-full flex justify-center">
+    <div className="h-full w-full flex flex-col items-center gap-8">
       <Cards deck={deck} updateScore={updateScore} />
+      <ScoreBoard currentScore={currentScore} bestScore={bestScore} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Cards({ deck }) {
+function Cards({ deck, updateScore }) {
   const [randomCards, setRandomCards] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
 
@@ -20,9 +20,18 @@ function Cards({ deck }) {
     setRandomCards(randCards);
   }
 
-  // function handleCardSubmit(card) {
-
-  // }
+  function handleCardSubmit(card) {
+    resetRandomCards();
+    // If card does not exist in clickedCards array
+    if (!clickedCards.find((code) => code === card.code)) {
+      setClickedCards((prev) => prev.concat(card.code));
+      updateScore(true);
+      return;
+    }
+    // Clicked card already exists in array, therefore reset game/array
+    setClickedCards([]);
+    updateScore(false);
+  }
 
   useEffect(() => {
     resetRandomCards();
@@ -34,7 +43,9 @@ function Cards({ deck }) {
       <div className="flex gap-3">
         {
           randomCards.map((card) => (
-            <img src={card.image} alt={`${card.value} of ${card.suit}`} key={card.code} className="h-40" />
+            <button type="button" key={card.code} onClick={() => handleCardSubmit(card)}>
+              <img src={card.image} alt={`${card.value} of ${card.suit}`} className="h-40" />
+            </button>
           ))
         }
       </div>

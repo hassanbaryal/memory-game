@@ -5,6 +5,16 @@ import Cards from './Cards';
 function Game() {
   const [deck, setDeck] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+
+  const updateScore = (isClickValid) => {
+    if (isClickValid) {
+      setCurrentScore((s) => s + 1);
+    } else {
+      setCurrentScore(0);
+    }
+  };
 
   useEffect(() => {
     async function fetchDrawDeck(deckID) {
@@ -32,6 +42,10 @@ function Game() {
     fetchDeck();
   }, []);
 
+  useEffect(() => {
+    if (currentScore > bestScore) setBestScore(currentScore);
+  }, [currentScore]);
+
   if (isLoading) {
     return (
       <Loader />
@@ -40,7 +54,7 @@ function Game() {
 
   return (
     <div className="h-full w-full flex justify-center">
-      <Cards deck={deck} />
+      <Cards deck={deck} updateScore={updateScore} />
     </div>
   );
 }
